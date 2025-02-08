@@ -4,18 +4,18 @@
 [ext_resource type="Texture2D" uid="uid://bv0if2tlunyjm" path="res://ObjetosSpr/frasco_burbujas.png" id="2_2cnt2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vpooi"]
-size = Vector2(30, 44.5)
+size = Vector2(32, 50)
 
 [node name="ScoreArea" type="Area2D" groups=["bottlesArray"]]
 script = ExtResource("1_4g24a")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -1)
-scale = Vector2(1.25, 1.3125)
+scale = Vector2(2, 2)
 texture = ExtResource("2_2cnt2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 1.75)
+position = Vector2(1, -1)
 shape = SubResource("RectangleShape2D_vpooi")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -7,17 +7,15 @@
 size = Vector2(23.7656, 20.4063)
 
 [node name="Pipe" type="Area2D" groups=["pipes"]]
-position = Vector2(363, 100)
 script = ExtResource("1_fpof7")
 
 [node name="abajo" type="Sprite2D" parent="."]
-position = Vector2(30, -464)
-scale = Vector2(1.39877, 1.375)
+scale = Vector2(2.5, 2.5)
 texture = ExtResource("2_mwdmn")
-offset = Vector2(0, 380)
 
 [node name="up" type="CollisionShape2D" parent="."]
-position = Vector2(29.1172, 48.7969)
+position = Vector2(0, -14.475)
+scale = Vector2(1.5, 2)
 shape = SubResource("RectangleShape2D_mdypr")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

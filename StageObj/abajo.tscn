@@ -4,19 +4,20 @@
 [ext_resource type="Texture2D" uid="uid://dmwhn3x08aioh" path="res://ObjetosSpr/piso de abajo.png" id="2_ef15x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kroji"]
-size = Vector2(889, 131.5)
+size = Vector2(1079.5, 131.5)
 
 [node name="abajo" type="Area2D"]
 z_index = -1
+position = Vector2(541, 1947)
 script = ExtResource("1_6qrd3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(434.5, 926)
 shape = SubResource("RectangleShape2D_kroji")
+metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(436, 940)
-scale = Vector2(1.02894, 1)
+scale = Vector2(1.24884, 1)
 texture = ExtResource("2_ef15x")
+metadata/_edit_lock_ = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -16,19 +16,20 @@ texture = ExtResource("1_vrpd0")
 script = ExtResource("1_jye6g")
 
 [node name="RestartButton" type="Button" parent="."]
-offset_left = 342.0
-offset_top = 350.0
-offset_right = 502.0
-offset_bottom = 413.0
+offset_left = 366.0
+offset_top = 673.0
+offset_right = 786.0
+offset_bottom = 842.0
 theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_647v7")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_hvlpg")
 theme_override_styles/normal = SubResource("StyleBoxTexture_kv3rx")
 
 [node name="final_score" type="Label" parent="."]
-offset_left = 342.0
-offset_top = 416.0
-offset_right = 487.0
-offset_bottom = 442.0
+offset_left = 360.0
+offset_top = 845.0
+offset_right = 860.0
+offset_bottom = 1067.0
+theme_override_font_sizes/font_size = 76
 text = "High score:"
 
 [connection signal="pressed" from="RestartButton" to="." method="_on_restart_button_pressed"]

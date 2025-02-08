@@ -54,15 +54,17 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_n81ol"]
-radius = 13.0
+radius = 17.0074
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_2r4ws")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_tokfk")
 animation = &"flying"
 frame_progress = 0.139286
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(2, 2)
 shape = SubResource("CircleShape2D_n81ol")

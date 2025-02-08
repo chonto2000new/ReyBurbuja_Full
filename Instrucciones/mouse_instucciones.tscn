@@ -47,13 +47,13 @@ animations = [{
 script = ExtResource("1_gketk")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(393.5, 583)
-scale = Vector2(1.60938, 1.5)
+position = Vector2(527, 1665)
+scale = Vector2(3.11719, 3.28125)
 sprite_frames = SubResource("SpriteFrames_3fslk")
 animation = &"inicio"
 frame_progress = 0.795631
 
 [node name="titulo" type="Sprite2D" parent="."]
-position = Vector2(281.5, 683)
-scale = Vector2(3.65, 3.82)
+position = Vector2(629, 1004)
+scale = Vector2(9.465, 7.65)
 texture = ExtResource("10_21ssa")

@@ -34,7 +34,7 @@ var NUMBER_OF_PIPES = 2  # Cambia este valor para generar más o menos tubos
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 
-	screen_size = Vector2(864, 936)
+	screen_size = Vector2(1080, 1920)
 	#screen_size = get_window().size
 	ground_height = $Piso.get_node("Sprite2D").texture.get_height()
 	hight_score = $SaveSistem.load()
@@ -44,7 +44,7 @@ func _ready() -> void:
 	
 	
 func new_game():
-	$Mouse.show()
+	show_children_with_fade($Mouse)
 	$Player/salud_componentes.salud_actual =  110.0 
 	$Player/salud_componentes.salud_maxima =  100.0 
 	game_running = false 
@@ -53,7 +53,7 @@ func new_game():
 	scroll = 0
 	actual_score = 0 
 	NUMBER_OF_PIPES = 2
-	$GameOver.hide()
+	hide_children_with_fade($GameOver, 0.0)
 	get_tree().call_group("pipes", "queue_free")
 	get_tree().call_group("bottlesArray", "queue_free")
 	pipes.clear()
@@ -90,7 +90,8 @@ func _input(event):
 						elif touch_x >= screen_width / 2:
 							$Player.flap(1) # Impulso a la izquierda
 							check_top()
-		
+	if event.is_action_pressed("salir"):  # "ui_cancel" es la acción de Escape por defecto, pero puede ser otra que hayas configurado
+		get_tree().quit()  # Esto cierra la aplicación
 
 		
 func start_game(pressedButton):
@@ -99,7 +100,7 @@ func start_game(pressedButton):
 	$Player.flap(pressedButton)
 	$PipeTimer.start()
 	$SaludTimer.start()
-	$Mouse.hide()
+	hide_children_with_fade($Mouse, 1.0)
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -181,7 +182,7 @@ func stop_game():
 	$PipeTimer.stop()
 	$SaludTimer.stop()
 	label.text = "High score:" + str(hight_score)
-	$GameOver.show()
+	show_children_with_fade($GameOver)
 	$Player.flying = false
 	game_running = false
 	game_over = true
@@ -191,6 +192,19 @@ func player_hit():
 	if game_over == false:
 		stop_game()
 
+func hide_children_with_fade(layer, fade_duration: float = 1.0):
+	for child in layer.get_children():
+		if child is CanvasItem:
+			var tween = create_tween()
+			tween.tween_property(child, "modulate:a", 0.0, fade_duration)
+			tween.tween_callback(child.hide)
+			
+func show_children_with_fade(layer):
+	for child in layer.get_children():
+		if child is CanvasItem:
+			var tween = create_tween()
+			tween.tween_property(child, "modulate:a", 1.0, 0.0)
+			tween.tween_callback(child.show)
 
 func _on_piso_hit() -> void:
 	$Player.falling = true
@@ -208,6 +222,7 @@ func _on_game_over_restart() -> void:
 
 
 func _on_salud_timer_timeout() -> void:
+	
 	if game_running == true:
 		$Player/salud_componentes.recibir_damage(5)
 		if $Player/salud_componentes.salud_actual <=  0.0:

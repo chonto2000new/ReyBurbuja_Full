@@ -4,31 +4,31 @@
 [ext_resource type="Texture2D" uid="uid://dv7g51fx0fdsg" path="res://ObjetosSpr/pared.png" id="2_vwatr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fy0ud"]
-size = Vector2(99, 2172)
+size = Vector2(109.5, 2845)
 
 [node name="Piso" type="Area2D"]
-position = Vector2(839, 436)
+position = Vector2(1047, 602)
 script = ExtResource("1_t60pj")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-1174.04, -64.4999)
-scale = Vector2(1.36, 2.1998)
+position = Vector2(0.41, 200)
+scale = Vector2(1.5, 4)
 texture = ExtResource("2_vwatr")
-offset = Vector2(864, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-18, -64)
+position = Vector2(0.41, 200)
+scale = Vector2(1, 1.4)
 shape = SubResource("RectangleShape2D_fy0ud")
 debug_color = Color(0, 0, 0.701961, 0.419608)
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(-1985.04, -29.5)
-scale = Vector2(1.36, 2.24442)
+position = Vector2(-1028.93, 200)
+scale = Vector2(1.5, 4)
 texture = ExtResource("2_vwatr")
-offset = Vector2(864, 0)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(-797, -29)
+position = Vector2(-1028.93, 200)
+scale = Vector2(1, 1.4)
 shape = SubResource("RectangleShape2D_fy0ud")
 debug_color = Color(0, 0, 0.701961, 0.419608)
 
