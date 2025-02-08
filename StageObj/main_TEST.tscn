@@ -1,0 +1,87 @@
+[gd_scene load_steps=17 format=3 uid="uid://bsb2fsnhawe27"]
+
+[ext_resource type="Script" path="res://StageObj/main_test.gd" id="1_pskhb"]
+[ext_resource type="PackedScene" uid="uid://gt0aagtexfgt" path="res://StageObj/pipe.tscn" id="2_pa1c0"]
+[ext_resource type="PackedScene" uid="uid://c34wj5mpds7pa" path="res://playerObj/bubble.tscn" id="3_d8bmp"]
+[ext_resource type="PackedScene" uid="uid://53hqtcd7hs8n" path="res://StageObj/piso_test.tscn" id="3_qmw7s"]
+[ext_resource type="Texture2D" uid="uid://x6fu2wf2dc80" path="res://ObjetosSpr/fondodos.png" id="4_buaqb"]
+[ext_resource type="PackedScene" uid="uid://bwja7xk7vu6ib" path="res://StageObj/salud_componente.tscn" id="5_ka35l"]
+[ext_resource type="PackedScene" uid="uid://c2h7tyasby2fh" path="res://StageObj/abajo.tscn" id="6_2vvxs"]
+[ext_resource type="AudioStream" uid="uid://rftuauqva1gd" path="res://musica/vuelo3.ogg" id="6_mshu5"]
+[ext_resource type="PackedScene" uid="uid://c8m65q01jksq1" path="res://StageObj/game_over.tscn" id="7_mdewn"]
+[ext_resource type="Texture2D" uid="uid://c36uorobsnnhn" path="res://playerSpr/corona.png" id="8_fepkg"]
+[ext_resource type="PackedScene" uid="uid://td6jn8kdu3y6" path="res://StageObj/barra_salud.tscn" id="9_uqixr"]
+[ext_resource type="AudioStream" uid="uid://djtpv2uilufiu" path="res://musica/muelto.ogg" id="11_hssrf"]
+[ext_resource type="PackedScene" uid="uid://cudk7soi8nw2c" path="res://StageObj/score_item.tscn" id="12_2hne3"]
+[ext_resource type="AudioStream" uid="uid://qh1nm6dtnyi3" path="res://musica/agarrar_objeto.ogg" id="14_43hit"]
+[ext_resource type="PackedScene" uid="uid://cemmff0txueer" path="res://Instrucciones/mouse_instucciones.tscn" id="15_hdn7n"]
+[ext_resource type="Script" path="res://saveSistem/SaveGame.gd" id="16_ptmhk"]
+
+[node name="Main" type="Node" groups=["Persist"]]
+script = ExtResource("1_pskhb")
+pipe_scene = ExtResource("2_pa1c0")
+score_scene = ExtResource("12_2hne3")
+
+[node name="fondo" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(443, 469)
+texture = ExtResource("4_buaqb")
+
+[node name="Player" parent="." instance=ExtResource("3_d8bmp")]
+position = Vector2(394, 498)
+
+[node name="salud_componentes" parent="Player" node_paths=PackedStringArray("barra_salud") instance=ExtResource("5_ka35l")]
+barra_salud = NodePath("../../ProgressBar")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Player"]
+stream = ExtResource("6_mshu5")
+
+[node name="pelo" type="Sprite2D" parent="Player"]
+position = Vector2(1, -22)
+scale = Vector2(0.59375, 0.32087)
+texture = ExtResource("8_fepkg")
+
+[node name="PipeTimer" type="Timer" parent="."]
+wait_time = 1.5
+
+[node name="Piso" parent="." instance=ExtResource("3_qmw7s")]
+position = Vector2(856, 394)
+
+[node name="abajo" parent="." instance=ExtResource("6_2vvxs")]
+position = Vector2(15, 31)
+
+[node name="ScoreLabel" type="Label" parent="."]
+offset_left = 111.0
+offset_top = 13.0
+offset_right = 239.0
+offset_bottom = 58.0
+theme_override_font_sizes/font_size = 32
+text = "SCORE:0"
+
+[node name="GameOver" parent="." instance=ExtResource("7_mdewn")]
+
+[node name="ProgressBar" parent="." instance=ExtResource("9_uqixr")]
+offset_left = 112.0
+offset_top = 70.0
+offset_right = 283.0
+offset_bottom = 97.0
+
+[node name="SaludTimer" type="Timer" parent="."]
+wait_time = 0.7
+
+[node name="muelto" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_hssrf")
+
+[node name="take_obj" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_43hit")
+
+[node name="Mouse" parent="." instance=ExtResource("15_hdn7n")]
+
+[node name="SaveSistem" type="Node2D" parent="."]
+script = ExtResource("16_ptmhk")
+
+[connection signal="timeout" from="PipeTimer" to="." method="_on_pipe_timer_timeout"]
+[connection signal="hit" from="Piso" to="." method="_on_piso_hit"]
+[connection signal="hit" from="abajo" to="." method="_on_abajo_hit"]
+[connection signal="restart" from="GameOver" to="." method="_on_game_over_restart"]
+[connection signal="timeout" from="SaludTimer" to="." method="_on_salud_timer_timeout"]

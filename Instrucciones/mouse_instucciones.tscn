@@ -1,0 +1,59 @@
+[gd_scene load_steps=12 format=3 uid="uid://cemmff0txueer"]
+
+[ext_resource type="Script" path="res://Instrucciones/mouse_instucciones.gd" id="1_gketk"]
+[ext_resource type="Texture2D" uid="uid://c3ie0g1a6odvh" path="res://Instrucciones/instrucciones1.png" id="1_h7wvx"]
+[ext_resource type="Texture2D" uid="uid://qcca3w2mhm81" path="res://Instrucciones/instrucciones2.png" id="2_3v7r6"]
+[ext_resource type="Texture2D" uid="uid://dli1pt1lw8axd" path="res://Instrucciones/instrucciones3.png" id="3_h3dpd"]
+[ext_resource type="Texture2D" uid="uid://d28l4afakc8hj" path="res://Instrucciones/instrucciones4.png" id="4_dgpcx"]
+[ext_resource type="Texture2D" uid="uid://dlqmnbwl2w2m8" path="res://Instrucciones/instrucciones5.png" id="5_h6jhq"]
+[ext_resource type="Texture2D" uid="uid://d30wh4urgrijb" path="res://Instrucciones/instrucciones6.png" id="6_klx4p"]
+[ext_resource type="Texture2D" uid="uid://c8ip88f1oemtm" path="res://Instrucciones/instrucciones7.png" id="7_6cnh1"]
+[ext_resource type="Texture2D" uid="uid://7p5soi8j1d4y" path="res://Instrucciones/instrucciones8.png" id="8_h72dj"]
+[ext_resource type="Texture2D" uid="uid://d2qiq2gtujij8" path="res://ObjetosSpr/titulo.png" id="10_21ssa"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3fslk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_h7wvx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_3v7r6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_h3dpd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_dgpcx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_h6jhq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_klx4p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_6cnh1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_h72dj")
+}],
+"loop": true,
+"name": &"inicio",
+"speed": 5.0
+}]
+
+[node name="Mouse" type="CanvasLayer"]
+script = ExtResource("1_gketk")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(393.5, 583)
+scale = Vector2(1.60938, 1.5)
+sprite_frames = SubResource("SpriteFrames_3fslk")
+animation = &"inicio"
+frame_progress = 0.795631
+
+[node name="titulo" type="Sprite2D" parent="."]
+position = Vector2(281.5, 683)
+scale = Vector2(3.65, 3.82)
+texture = ExtResource("10_21ssa")

@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://gt0aagtexfgt"]
+
+[ext_resource type="Script" path="res://pipe.gd" id="1_fpof7"]
+[ext_resource type="Texture2D" uid="uid://boija2wv0ctw1" path="res://ObjetosSpr/pico.png" id="2_mwdmn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mdypr"]
+size = Vector2(23.7656, 20.4063)
+
+[node name="Pipe" type="Area2D" groups=["pipes"]]
+position = Vector2(363, 100)
+script = ExtResource("1_fpof7")
+
+[node name="abajo" type="Sprite2D" parent="."]
+position = Vector2(30, -464)
+scale = Vector2(1.39877, 1.375)
+texture = ExtResource("2_mwdmn")
+offset = Vector2(0, 380)
+
+[node name="up" type="CollisionShape2D" parent="."]
+position = Vector2(29.1172, 48.7969)
+shape = SubResource("RectangleShape2D_mdypr")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

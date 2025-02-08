@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://l0gvw54if55h"]
+
+[ext_resource type="Script" path="res://StageObj/main.gd" id="1_jjn2w"]
+[ext_resource type="PackedScene" uid="uid://c34wj5mpds7pa" path="res://playerObj/bubble.tscn" id="2_uk2ml"]
+[ext_resource type="PackedScene" uid="uid://gt0aagtexfgt" path="res://StageObj/pipe.tscn" id="2_vy2y4"]
+[ext_resource type="PackedScene" uid="uid://cmmt66cxetocd" path="res://StageObj/piso.tscn" id="3_f24f6"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_jjn2w")
+pipe_scene = ExtResource("2_vy2y4")
+
+[node name="Player" parent="." instance=ExtResource("2_uk2ml")]
+position = Vector2(7, 797)
+
+[node name="Piso" parent="." instance=ExtResource("3_f24f6")]
+
+[node name="PipeTimer" type="Timer" parent="."]
+wait_time = 1.5
+
+[connection signal="timeout" from="PipeTimer" to="." method="_on_pipe_timer_timeout"]
