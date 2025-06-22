@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://td6jn8kdu3y6"]
 
 [ext_resource type="Texture2D" uid="uid://blyeieecnwko" path="res://ObjetosSpr/salud.png" id="1_nbggn"]
-[ext_resource type="Script" path="res://StageObj/barra_salud.gd" id="2_a2v6k"]
+[ext_resource type="Script" uid="uid://cegi51how1vaf" path="res://StageObj/barra_salud.gd" id="2_a2v6k"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tuniw"]
 bg_color = Color(0.325441, 0.325441, 0.325441, 1)

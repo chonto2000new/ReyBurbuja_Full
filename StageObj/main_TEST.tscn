@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://bsb2fsnhawe27"]
 
-[ext_resource type="Script" path="res://StageObj/main_test.gd" id="1_pskhb"]
+[ext_resource type="Script" uid="uid://dhdkr8r0bhvab" path="res://StageObj/main_test.gd" id="1_pskhb"]
 [ext_resource type="PackedScene" uid="uid://gt0aagtexfgt" path="res://StageObj/pipe.tscn" id="2_pa1c0"]
 [ext_resource type="PackedScene" uid="uid://c34wj5mpds7pa" path="res://playerObj/bubble.tscn" id="3_d8bmp"]
 [ext_resource type="PackedScene" uid="uid://53hqtcd7hs8n" path="res://StageObj/piso_test.tscn" id="3_qmw7s"]
@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://cudk7soi8nw2c" path="res://StageObj/score_item.tscn" id="12_2hne3"]
 [ext_resource type="AudioStream" uid="uid://qh1nm6dtnyi3" path="res://musica/agarrar_objeto.ogg" id="14_43hit"]
 [ext_resource type="PackedScene" uid="uid://cemmff0txueer" path="res://Instrucciones/mouse_instucciones.tscn" id="15_hdn7n"]
-[ext_resource type="Script" path="res://saveSistem/SaveGame.gd" id="16_ptmhk"]
+[ext_resource type="Script" uid="uid://cjtcclc5ttpwt" path="res://saveSistem/SaveGame.gd" id="16_ptmhk"]
 
 [node name="Main" type="Node" groups=["Persist"]]
 script = ExtResource("1_pskhb")
@@ -38,7 +38,7 @@ barra_salud = NodePath("../../ProgressBar")
 stream = ExtResource("6_mshu5")
 
 [node name="pelo" type="Sprite2D" parent="Player"]
-position = Vector2(1, -22)
+position = Vector2(5.96046e-08, -41)
 scale = Vector2(0.59375, 0.32087)
 texture = ExtResource("8_fepkg")
 

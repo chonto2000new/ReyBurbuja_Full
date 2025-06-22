@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cudk7soi8nw2c"]
 
-[ext_resource type="Script" path="res://StageObj/score_item.gd" id="1_4g24a"]
+[ext_resource type="Script" uid="uid://bltqekisyy516" path="res://StageObj/score_item.gd" id="1_4g24a"]
 [ext_resource type="Texture2D" uid="uid://bv0if2tlunyjm" path="res://ObjetosSpr/frasco_burbujas.png" id="2_2cnt2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vpooi"]

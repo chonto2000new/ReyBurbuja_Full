@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cmmt66cxetocd"]
 
-[ext_resource type="Script" path="res://StageObj/piso_test.gd" id="1_6u2w1"]
+[ext_resource type="Script" uid="uid://bxw8j2kpdbira" path="res://StageObj/piso_test.gd" id="1_6u2w1"]
 [ext_resource type="Texture2D" uid="uid://cum5khv3jtce1" path="res://assets/ground.png" id="2_8664e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fy0ud"]

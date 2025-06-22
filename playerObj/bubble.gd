@@ -10,6 +10,8 @@ const FRICTION: float = 300.0 # Reducción progresiva del impulso en X
 var flying : bool = false
 var falling : bool = false 
 const START_POS = Vector2(400, 500)
+const MAX_UP_ROTATION = deg_to_rad(-30)  # Inclina hacia arriba
+const MAX_DOWN_ROTATION = deg_to_rad(90) # Rotación máxima hacia abajo
 
 
 func _ready():
@@ -35,20 +37,31 @@ func _physics_process(delta):
 			if velocity.x < 0:
 				velocity.x = 0 # Evitar que vaya hacia atrás
 
-		# Rotación del personaje según velocidad
-		if flying:
-			set_rotation(deg_to_rad(velocity.y * 0.05))
-			$AnimatedSprite2D.play("flying")
-		elif falling : 
-			set_rotation(PI/2)
-			$AnimatedSprite2D.stop()
+		## Rotación del personaje según velocidad
+		#if flying:
+			## Inclinar ligeramente hacia arriba
+			#var tilt = velocity.y * 0.05
+			#tilt = clamp(tilt, MAX_UP_ROTATION, 0)  # Solo hacia arriba
+			#set_rotation(tilt)
+		#elif falling:
+			## Cuando cae, rota hacia abajo completamente
+			#set_rotation(MAX_DOWN_ROTATION)
+		if falling:
+			set_rotation(MAX_DOWN_ROTATION)
 
 		move_and_collide(velocity * delta)
+
 	else: 
 		$AnimatedSprite2D.stop()
 		
+const FLAP_TILT = deg_to_rad(25) # cuánto se inclina al volar
+
 func flap(direction: int):
 	$AudioStreamPlayer.play()
+	$AnimatedSprite2D.play("flying")
 	velocity.y = FLAP_SPEED
-	velocity.x = FLAP_X_SPEED * direction * 2 # Aumentamos el impulso un 20%
+	velocity.x = FLAP_X_SPEED * direction * 2
 	flying = true
+
+	# Rotación leve hacia la dirección del impulso
+	set_rotation(FLAP_TILT * direction)

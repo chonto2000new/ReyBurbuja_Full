@@ -66,15 +66,21 @@ func new_game():
 
 func _input(event):
 	if game_over == false:
-			if event is InputEventMouseButton and event.pressed:
+			print(event)
+			print("=============================>>>")
+			if event is InputEventMouseButton and event.pressed :
 				if game_running == false:
 					start_game(0)
 				else:
 					if $Player.flying:
-						if event.button_index == MOUSE_BUTTON_LEFT:
+						#if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
+						if Input.is_action_pressed("left") and Input.is_action_pressed("right"):
+							$Player.flap(0) # Impulso a la izquierda
+							check_top()
+						elif Input.is_action_pressed("left"):
 							$Player.flap(-1)  # Impulso a la derecha
 							check_top()
-						elif event.button_index == MOUSE_BUTTON_RIGHT:
+						elif Input.is_action_pressed("right"):
 							$Player.flap(1) # Impulso a la izquierda
 							check_top()
 			if event is InputEventScreenTouch and event.pressed:

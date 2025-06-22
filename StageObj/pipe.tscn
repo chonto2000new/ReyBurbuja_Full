@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://gt0aagtexfgt"]
 
-[ext_resource type="Script" path="res://pipe.gd" id="1_fpof7"]
+[ext_resource type="Script" uid="uid://nppybqpg64by" path="res://pipe.gd" id="1_fpof7"]
 [ext_resource type="Texture2D" uid="uid://boija2wv0ctw1" path="res://ObjetosSpr/pico.png" id="2_mwdmn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mdypr"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://c34wj5mpds7pa"]
 
-[ext_resource type="Script" path="res://playerObj/bubble.gd" id="1_2r4ws"]
+[ext_resource type="Script" uid="uid://ul1ou88xugxx" path="res://playerObj/bubble.gd" id="1_2r4ws"]
 [ext_resource type="Texture2D" uid="uid://c7ysde1n1367x" path="res://playerSpr/rey burbuja1.png" id="2_d2ewl"]
 [ext_resource type="Texture2D" uid="uid://bdlrrsjn3nnov" path="res://icon.svg" id="3_juv63"]
 [ext_resource type="Texture2D" uid="uid://doilk4l15eik8" path="res://playerSpr/rey burbuja3.png" id="3_ux7vp"]
@@ -22,8 +22,16 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("5_j28j5")
 }],
-"loop": true,
+"loop": false,
 "name": &"flying",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_d2ewl")
+}],
+"loop": true,
+"name": &"idle",
 "speed": 5.0
 }, {
 "frames": [{
@@ -63,7 +71,7 @@ script = ExtResource("1_2r4ws")
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_tokfk")
 animation = &"flying"
-frame_progress = 0.139286
+autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(2, 2)
